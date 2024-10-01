@@ -18,62 +18,91 @@ class ChatBot {
     this.client.on('message', msg => {
       // Se a mensagem é a primeira interação ou não corresponde às opções
       if (!['1', '2', '3', '1.1', '1.2', '1.3', '4'].includes(msg.body)) {
-        // Enviar o menu principal de opções
+        // Enviar o menu principal de opções simulando botões
         this.enviarOpcoes(msg);
       } else {
         // Verificar qual opção foi escolhida
         if (msg.body === '1') {
-          this.produtos(msg);
+          this.produtos(msg); // Vai para o menu de produtos
         } else if (msg.body === '2') {
-          this.suporte(msg);
+          this.suporte(msg); // Vai para suporte
         } else if (msg.body === '3') {
-          this.atendente(msg);
+          this.atendente(msg); // Vai para atendimento
         } else if (msg.body === '1.1') {
-          this.softwaresJuridicos(msg);
+          this.softwaresJuridicos(msg); // Detalhes de Softwares Jurídicos
         } else if (msg.body === '1.2') {
-          this.consultoriaLegal(msg);
+          this.consultoriaLegal(msg); // Detalhes de Consultoria Legal
         } else if (msg.body === '1.3') {
-          this.gestaoDocumentos(msg);
+          this.gestaoDocumentos(msg); // Detalhes de Gestão de Documentos
         } else if (msg.body === '4') {
-          this.voltar(msg);
+          this.voltar(msg); // Voltar ao menu principal
         }
       }
     });
   }
 
-  // Envia o menu principal para o usuário
+  // Envia o menu principal simulando botões de opções
   enviarOpcoes(msg) {
-    msg.reply("Bem-vindo à AOB!\nEscolha uma opção:\n1. Produtos\n2. Suporte\n3. Falar com atendente");
+    msg.reply(
+      `*Bem-vindo à AOB!*\n\nEscolha uma opção clicando no número correspondente:\n\n` +
+      `1️⃣ *Produtos*\n` +
+      `2️⃣ *Suporte*\n` +
+      `3️⃣ *Falar com atendente*\n`
+    );
   }
 
-  // Envia o menu de produtos para o usuário
+  // Envia o menu de produtos simulando botões
   produtos(msg) {
-    msg.reply("Escolha uma categoria de produtos:\n1.1. Softwares Jurídicos\n1.2. Consultoria Legal\n1.3. Gestão de Documentos\n4. Voltar");
+    msg.reply(
+      `*Escolha uma categoria de produtos:*\n\n` +
+      `1️1️⃣ *Softwares Jurídicos*\n` +
+      `1️2️⃣ *Consultoria Legal*\n` +
+      `1️3️⃣ *Gestão de Documentos*\n` +
+      `4️⃣ *Voltar ao menu principal*\n`
+    );
   }
 
   // Detalhes sobre os Softwares Jurídicos
   softwaresJuridicos(msg) {
-    msg.reply("Oferecemos os seguintes softwares jurídicos:\n- Sistema de Automação de Processos\n- Gerenciamento de Escritórios de Advocacia\n- Software para Pesquisa de Jurisprudência");
+    msg.reply(
+      `*Oferecemos os seguintes softwares jurídicos:*\n\n` +
+      `- Sistema de Automação de Processos\n` +
+      `- Gerenciamento de Escritórios de Advocacia\n` +
+      `- Software para Pesquisa de Jurisprudência\n\n` +
+      `4️⃣ *Voltar para Produtos*`
+    );
   }
 
   // Detalhes sobre Consultoria Legal
   consultoriaLegal(msg) {
-    msg.reply("Oferecemos serviços de consultoria em:\n- Direito Civil\n- Direito Penal\n- Direito Trabalhista");
+    msg.reply(
+      `*Oferecemos serviços de consultoria em:*\n\n` +
+      `- Direito Civil\n` +
+      `- Direito Penal\n` +
+      `- Direito Trabalhista\n\n` +
+      `4️⃣ *Voltar para Produtos*`
+    );
   }
 
   // Detalhes sobre Gestão de Documentos
   gestaoDocumentos(msg) {
-    msg.reply("Serviços de gestão de documentos jurídicos:\n- Organização de Documentos de Processos\n- Digitalização de Arquivos\n- Armazenamento Seguro de Documentos");
+    msg.reply(
+      `*Serviços de gestão de documentos jurídicos:*\n\n` +
+      `- Organização de Documentos de Processos\n` +
+      `- Digitalização de Arquivos\n` +
+      `- Armazenamento Seguro de Documentos\n\n` +
+      `4️⃣ *Voltar para Produtos*`
+    );
   }
 
   // Mensagem de suporte
   suporte(msg) {
-    msg.reply("Como posso ajudar com o suporte?");
+    msg.reply("Como posso ajudar com o suporte?\n\n4️⃣ *Voltar ao menu principal*");
   }
 
   // Mensagem para falar com um atendente
   atendente(msg) {
-    msg.reply("Um atendente estará com você em breve.");
+    msg.reply("Um atendente estará com você em breve.\n\n4️⃣ *Voltar ao menu principal*");
   }
 
   // Voltar ao menu principal
